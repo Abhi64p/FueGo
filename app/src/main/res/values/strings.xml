@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FueGo</string>
+    <string name="tab_text_1">Burner 1</string>
+    <string name="tab_text_2">Burner 2</string>
+</resources>
