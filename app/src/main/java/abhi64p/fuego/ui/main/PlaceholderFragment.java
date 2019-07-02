@@ -11,13 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import abhi64p.fuego.R;
-import abhi64p.fuego.SendData;
-
-import static abhi64p.fuego.BurnerNobActivity.CurrentTabIndex;
-import static abhi64p.fuego.BurnerNobActivity.IP;
 
 public class PlaceholderFragment extends Fragment
 {
@@ -65,43 +59,8 @@ public class PlaceholderFragment extends Fragment
                 @Override
                 public void onClick(View view)
                 {
-                    new Thread(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            SendData SD = new SendData(IP + "/off" + (CurrentTabIndex + 1));
-                            SD.setListener(new SendData.SendListener()
-                            {
-                                @Override
-                                public void onComplete(int Response)
-                                {
-                                    fragmentActivity.runOnUiThread(new Runnable()
-                                    {
-                                        @Override
-                                        public void run()
-                                        {
-                                            CenterNob.animate().rotation(-45).setDuration(200).start();
-                                        }
-                                    });
-                                }
+                    CenterNob.animate().rotation(-45).setDuration(200).start();
 
-                                @Override
-                                public void onError(String err)
-                                {
-                                    fragmentActivity.runOnUiThread(new Runnable()
-                                    {
-                                        @Override
-                                        public void run()
-                                        {
-                                            Snackbar.make(root, "Can't connect. try again.", Snackbar.LENGTH_LONG).show();
-                                        }
-                                    });
-                                }
-                            });
-                            SD.Send();
-                        }
-                    }).start();
                 }
             });
             OnCV.setOnClickListener(new View.OnClickListener()
@@ -109,43 +68,8 @@ public class PlaceholderFragment extends Fragment
                 @Override
                 public void onClick(View view)
                 {
-                    new Thread(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            SendData SD = new SendData(IP + "on" + (CurrentTabIndex + 1));
-                            SD.setListener(new SendData.SendListener()
-                            {
-                                @Override
-                                public void onComplete(int Response)
-                                {
-                                    fragmentActivity.runOnUiThread(new Runnable()
-                                    {
-                                        @Override
-                                        public void run()
-                                        {
-                                            CenterNob.animate().rotation(0).setDuration(200).start();
-                                        }
-                                    });
-                                }
+                    CenterNob.animate().rotation(0).setDuration(200).start();
 
-                                @Override
-                                public void onError(String err)
-                                {
-                                    fragmentActivity.runOnUiThread(new Runnable()
-                                    {
-                                        @Override
-                                        public void run()
-                                        {
-                                            Snackbar.make(root, "Can't connect. try again.", Snackbar.LENGTH_LONG).show();
-                                        }
-                                    });
-                                }
-                            });
-                            SD.Send();
-                        }
-                    }).start();
                 }
             });
             SimCV.setOnClickListener(new View.OnClickListener()
@@ -153,43 +77,7 @@ public class PlaceholderFragment extends Fragment
                 @Override
                 public void onClick(View view)
                 {
-                    new Thread(new Runnable()
-                    {
-                        @Override
-                        public void run()
-                        {
-                            SendData SD = new SendData(IP + "sim" + (CurrentTabIndex + 1));
-                            SD.setListener(new SendData.SendListener()
-                            {
-                                @Override
-                                public void onComplete(int Response)
-                                {
-                                    fragmentActivity.runOnUiThread(new Runnable()
-                                    {
-                                        @Override
-                                        public void run()
-                                        {
-                                            CenterNob.animate().rotation(45).setDuration(200).start();
-                                        }
-                                    });
-                                }
-
-                                @Override
-                                public void onError(String err)
-                                {
-                                    fragmentActivity.runOnUiThread(new Runnable()
-                                    {
-                                        @Override
-                                        public void run()
-                                        {
-                                            Snackbar.make(root, "Can't connect. try again.", Snackbar.LENGTH_LONG).show();
-                                        }
-                                    });
-                                }
-                            });
-                            SD.Send();
-                        }
-                    }).start();
+                    CenterNob.animate().rotation(45).setDuration(200).start();
                 }
             });
         }
