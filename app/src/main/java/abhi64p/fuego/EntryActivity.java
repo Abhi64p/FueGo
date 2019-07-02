@@ -35,7 +35,7 @@ public class EntryActivity extends AppCompatActivity
         OuterCircle2.setScaleY(1);
         OuterCircle2.setAlpha(1);
 
-        startActivityForResult(new Intent(EntryActivity.this,BurnerNobActivity.class),0);
+        startActivityForResult(new Intent(EntryActivity.this,SelectionActivity.class),0);
     }
 
     private void DoAnimation()
